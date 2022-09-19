@@ -1,14 +1,18 @@
 ﻿using ReduceGenderBiasInFeedbackTool.Data;
+using System.Collections.Generic;
 
 namespace ReduceGenderBiasInFeedbackTool.Models
 {
     public class EvaluateEntry
     {
-        public static int CompareWordsAndGetScore(string text) 
+        public static Score CompareWordsAndGetScore(string text) 
         {
-            int score = 0;
+            int feminineScore = 0;
+            int masculineScore = 0;
             string[] parsedRawText = text.ToLower().Split(' ');
-            
+            HashSet<string> feminineWordsInText = new HashSet<string>();
+            HashSet<string> masculineWordsInText = new HashSet<string>();
+
             // Iterate through feminine/masculine-coded word set
             foreach (string codedWord in WordList.feminine_coded_words)
             {
@@ -16,7 +20,8 @@ namespace ReduceGenderBiasInFeedbackTool.Models
                 {
                     if (word.Contains(codedWord))
                     {
-                        score++;
+                        feminineScore++;
+                        feminineWordsInText.Add(word);
                     }
                 }
                
@@ -28,13 +33,14 @@ namespace ReduceGenderBiasInFeedbackTool.Models
                 {
                     if (word.Contains(codedWord))
                     {
-                        score++;
+                        masculineScore++;
+                        masculineWordsInText.Add(word);
                     }
                 }
 
             }
 
-            return score;
+            return new Score(feminineScore, masculineScore, feminineWordsInText, masculineWordsInText);
         }
     }
 }
