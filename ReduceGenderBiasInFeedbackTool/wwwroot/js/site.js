@@ -95,11 +95,11 @@ function updateAnalysis6() {
 }
 
 $("#bias-check1").on('click', updateAnalysis1)
-$("#bias-check2").on('click', updateAnalysis1)
-$("#bias-check3").on('click', updateAnalysis1)
-$("#bias-check4").on('click', updateAnalysis1)
-$("#bias-check5").on('click', updateAnalysis1)
-$("#bias-check6").on('click', updateAnalysis1)
+$("#bias-check2").on('click', updateAnalysis2)
+$("#bias-check3").on('click', updateAnalysis3)
+$("#bias-check4").on('click', updateAnalysis4)
+$("#bias-check5").on('click', updateAnalysis5)
+$("#bias-check6").on('click', updateAnalysis6)
 //$("#Message1").on('change input paste', updateAnalysis1)
 //$("#Message2").on('change input paste', updateAnalysis2)
 //$("#Message3").on('change input paste', updateAnalysis3)
