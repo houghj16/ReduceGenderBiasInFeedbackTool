@@ -19,7 +19,7 @@ namespace ReduceGenderBiasInFeedbackTool.Models
             {
                 foreach (var word in parsedRawText)
                 {
-                    if (word.Contains(codedWord))
+                    if (word.ToLower().Contains(codedWord))
                     {
                         score++;
                     }
