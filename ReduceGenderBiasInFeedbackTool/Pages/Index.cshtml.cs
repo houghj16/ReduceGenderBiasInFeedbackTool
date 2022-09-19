@@ -34,7 +34,7 @@ namespace ReduceGenderBiasInFeedbackTool.Pages
             var score = 0;
             if (String.IsNullOrEmpty(text)) return Content(score.ToString());
             // call function on it
-            score = 10;
+            score = ReduceGenderBiasInFeedbackTool.Models.EvaluateEntry.CompareWordsAndGetScore(text);
             return Content(score.ToString());
         }
     }
