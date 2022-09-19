@@ -9,18 +9,94 @@ function getAnalysis(userInput) {
         })
 }
 
-function updateMarker(sentiment) {
-    $("#markerValue").text(sentiment);
+function updateMarker1(sentiment) {
+    $("#markerValue1").text(sentiment);
 }
 
-function updateAnalysis() {
+function updateMarker2(sentiment) {
+    $("#markerValue2").text(sentiment);
+}
 
-    var userInput = $("#Message").val();
+function updateMarker3(sentiment) {
+    $("#markerValue3").text(sentiment);
+}
+
+function updateMarker4(sentiment) {
+    $("#markerValue4").text(sentiment);
+}
+
+function updateMarker5(sentiment) {
+    $("#markerValue5").text(sentiment);
+}
+
+function updateMarker6(sentiment) {
+    $("#markerValue6").text(sentiment);
+}
+
+function updateAnalysis1() {
+
+    var userInput = $("#Message1").val();
 
     getAnalysis(userInput)
         .then((sentiment) => {
-            updateMarker(sentiment);
+            updateMarker1(sentiment);
         });
 }
 
-$("#Message").on('change input paste', updateAnalysis)
+
+function updateAnalysis2() {
+
+    var userInput = $("#Message2").val();
+
+    getAnalysis(userInput)
+        .then((sentiment) => {
+            updateMarker2(sentiment);
+        });
+}
+
+function updateAnalysis3() {
+
+    var userInput = $("#Message3").val();
+
+    getAnalysis(userInput)
+        .then((sentiment) => {
+            updateMarker3(sentiment);
+        });
+}
+
+function updateAnalysis4() {
+
+    var userInput = $("#Message4").val();
+
+    getAnalysis(userInput)
+        .then((sentiment) => {
+            updateMarker4(sentiment);
+        });
+}
+
+function updateAnalysis5() {
+
+    var userInput = $("#Message5").val();
+
+    getAnalysis(userInput)
+        .then((sentiment) => {
+            updateMarker5(sentiment);
+        });
+}
+
+function updateAnalysis6() {
+
+    var userInput = $("#Message6").val();
+
+    getAnalysis(userInput)
+        .then((sentiment) => {
+            updateMarker6(sentiment);
+        });
+}
+
+$("#Message1").on('change input paste', updateAnalysis1)
+$("#Message2").on('change input paste', updateAnalysis2)
+$("#Message3").on('change input paste', updateAnalysis3)
+$("#Message4").on('change input paste', updateAnalysis4)
+$("#Message5").on('change input paste', updateAnalysis5)
+$("#Message6").on('change input paste', updateAnalysis6)

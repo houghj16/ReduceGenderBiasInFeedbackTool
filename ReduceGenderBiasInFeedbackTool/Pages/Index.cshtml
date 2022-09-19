@@ -6,19 +6,47 @@
     ViewData["Title"] = "Index";
 }
 <div>
-    <h2>Live Analysis</h2>
-    <p><textarea id="Message" cols="45" placeholder="Type any text like a short review"></textarea></p>
-    <label id="markerValue">Neutral</label>
+@*    <h1>Bias Score:</h1>
+    <label id="markerValue">Neutral</label>*@
+
+    <h1>Keep doing...</h1>
+    <p>Here's something I think you do really well and hope you keep doing:</p>
+    <p><textarea class="input" id="Message1" cols="45" placeholder="Enter your comments here"></textarea></p>
+    <span>Bias Feedback: <label id="markerValue1">0</label></span>
+    
+    <p>Here's a suggestion for how you can leverage this strength further:</p>
+    <p><textarea class="input" id="Message2" cols="45" placeholder="Enter your comments here"></textarea></p>
+    <span>Bias Feedback: <label id="markerValue2">0</label></span>
+
+    <h1>Re-think...</h1>
+    <p>Here's something I think you do really well and hope you keep doing:</p>
+    <p><textarea class="input" id="Message3" cols="45" placeholder="Enter your comments here"></textarea></p>
+    <span>Bias Feedback: <label id="markerValue3">0</label></span>
+
+    <p>Here's a suggestion for how you can leverage this strength further:</p>
+    <p><textarea class="input" id="Message4" cols="45" placeholder="Enter your comments here"></textarea></p>
+    <span>Bias Feedback: <label id="markerValue4">0</label></span>
+
+    <h1>Additional thoughts...</h1>
+    <p>The thing I most value about working with you is:</p>
+    <p><textarea class="input" id="Message5" cols="45" placeholder="Enter your comments here"></textarea></p>
+    <span>Bias Feedback: <label id="markerValue5">0</label></span>
+
+    <p>Here are some other thoughts I have that you want to consider:</p>
+    <p><textarea class="input" id="Message6" cols="45" placeholder="Enter your comments here"></textarea></p>
+    <span>Bias Feedback: <label id="markerValue6">0</label></span>
+
+    <button type="submit" value="Submit" class="btn btn-primary">Send</button>
 </div>
 
-<div>
+@*<div>
     <form method="post">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
         <div class="form-group">
             <h1>Keep doing...</h1>
             <p>Here's something I think you do really well and hope you keep doing:</p>
-            @*<label asp-for="Feedback[0].Body" class="control-label"></label>*@
+            <label asp-for="Feedback[0].Body" class="control-label"></label>
             <input asp-for="Feedback[0].Body1" value="Enter your comments here" class="form-control" />
             <span asp-validation-for="Feedback[0].Body1" class="text-danger"></span>
 
@@ -30,7 +58,7 @@
         <div class="form-group">
             <h1>Re-think...</h1>
             <p>Here's something I think you do really well and hope you keep doing:</p>
-            @*<label asp-for="Feedback[0].Body" class="control-label"></label>*@
+            <label asp-for="Feedback[0].Body" class="control-label"></label>
             <input asp-for="Feedback[0].Body3" value="Enter your comments here" class="form-control" />
             <span asp-validation-for="Feedback[0].Body3" class="text-danger"></span>
 
@@ -42,7 +70,7 @@
         <div class="form-group">
             <h1>Additional thoughts...</h1>
             <p>The thing I most value about working with you is:</p>
-            @*<label asp-for="Feedback[0].Body" class="control-label"></label>*@
+            <label asp-for="Feedback[0].Body" class="control-label"></label>
             <input asp-for="Feedback[0].Body5" value="Enter your comments here" class="form-control" />
             <span asp-validation-for="Feedback[0].Body5" class="text-danger"></span>
 
@@ -56,7 +84,7 @@
             <button type="submit" value="Submit" class="btn btn-primary">Send</button>
         </div>
     </form>
-@*    @using (Html.BeginForm("ActionMethod", "ControllerName", FormMethod.Post))
+    @using (Html.BeginForm("ActionMethod", "ControllerName", FormMethod.Post))
     {
         <h1>Keep doing...</h1>
         <p>Here's something I think you do really well and hope you keep doing:</p>
@@ -83,7 +111,7 @@
 
         <h1>Index</h1>
         <input type="button" name="button" class="button1" value="Submit" />
-    }*@
+    }
 </div>
 
 
@@ -95,7 +123,7 @@
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Feedback[0].Body1)
-                @*@Html.TextAreaFor(m => m.Feedback[0].Body)*@
+                @Html.TextAreaFor(m => m.Feedback[0].Body)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Feedback[0].HasBeenChecked)
@@ -126,4 +154,4 @@
         </tr>
 }
     </tbody>
-</table>
+</table>*@
