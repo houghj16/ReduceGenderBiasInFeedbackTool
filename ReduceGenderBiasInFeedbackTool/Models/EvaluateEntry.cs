@@ -4,20 +4,15 @@ namespace ReduceGenderBiasInFeedbackTool.Models
 {
     public class EvaluateEntry
     {
-        public static HashSet<string> ParseRawText(string text) 
-        {
-            return text.Split(' ').ToHashSet<string>();
-        }
-
         public static int CompareWordsAndGetScore(string text) 
         {
             int score = 0;
-            HashSet<string> parsedRawText = ParseRawText(text);
+            string[] parsedRawText = text.Split(' ');
             
             // Iterate through feminine/masculine-coded word set
             foreach (string codedWord in WordList.feminine_coded_words)
             {
-                foreach (var word in parsedRawText)
+                foreach (string word in parsedRawText)
                 {
                     if (word.ToLower().Contains(codedWord))
                     {
