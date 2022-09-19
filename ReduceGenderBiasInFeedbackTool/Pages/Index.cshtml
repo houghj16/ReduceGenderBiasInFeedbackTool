@@ -6,6 +6,12 @@
     ViewData["Title"] = "Index";
 }
 <div>
+    <h1 id="title">Provide your perspective</h1>
+    <div>
+        <h1 id="personal-note">A personal note to you from Jessie Houghton</h1>
+        <p id="personal-message-p">"Hi Linda, I'd appreciate if you take some time to provide feedback about my work/impact and help my growth within Microsoft. Thank you!"</p>
+</div>
+<div>
 @*    <h1>Bias Score:</h1>
     <label id="markerValue">Neutral</label>*@
 
@@ -49,7 +55,7 @@
     <form method="post">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-        <div class="form-group">
+        <div class="form-group first">
             <h1>Keep doing...</h1>
             <p>Here's something I think you do really well and hope you keep doing:</p>
             <label asp-for="Feedback[0].Body" class="control-label"></label>
@@ -57,7 +63,7 @@
             <span asp-validation-for="Feedback[0].Body1" class="text-danger"></span>
 
             <p>Here's a suggestion for how you can leverage this strength further:</p>
-            <input asp-for="Feedback[0].Body2" value="Enter your comments here" class="form-control" />
+            <textarea asp-for="Feedback[0].Body2" placeholder="Enter your comments here" class="form-control"></textarea>
             <span asp-validation-for="Feedback[0].Body2" class="text-danger"></span>
         </div>
 
@@ -69,7 +75,7 @@
             <span asp-validation-for="Feedback[0].Body3" class="text-danger"></span>
 
             <p>Here's a suggestion for how you can leverage this strength further:</p>
-            <input asp-for="Feedback[0].Body4" value="Enter your comments here" class="form-control" />
+            <textarea asp-for="Feedback[0].Body4" placeholder="Enter your comments here" class="form-control"></textarea>
             <span asp-validation-for="Feedback[0].Body4" class="text-danger"></span>
         </div>
 
@@ -81,12 +87,12 @@
             <span asp-validation-for="Feedback[0].Body5" class="text-danger"></span>
 
             <p>Here are some other thoughts I have that you want to consider:</p>
-            <input asp-for="Feedback[0].Body6" value="Enter your comments here" class="form-control" />
+            <textarea asp-for="Feedback[0].Body6" placeholder="Enter your comments here" class="form-control"></textarea>
             <span asp-validation-for="Feedback[0].Body6" class="text-danger"></span>
         </div>
 
 
-        <div class="form-group">
+        <div class="form-group submit-button">
             <button type="submit" value="Submit" class="btn btn-primary">Send</button>
         </div>
     </form>
