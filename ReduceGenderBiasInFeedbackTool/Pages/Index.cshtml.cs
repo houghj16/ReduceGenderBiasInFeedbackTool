@@ -28,5 +28,14 @@ namespace ReduceGenderBiasInFeedbackTool.Pages
                 Feedback = await _context.Feedback.ToListAsync();
             }
         }
+
+        public IActionResult OnGetAnalyzeFeedback(string text)
+        {
+            var score = 0;
+            if (String.IsNullOrEmpty(text)) return Content(score.ToString());
+            // call function on it
+            score = 10;
+            return Content(score.ToString());
+        }
     }
 }
