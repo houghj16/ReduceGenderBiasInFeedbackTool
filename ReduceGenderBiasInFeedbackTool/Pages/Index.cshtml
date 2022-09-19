@@ -6,6 +6,12 @@
     ViewData["Title"] = "Index";
 }
 <div>
+    <h2>Live Analysis</h2>
+    <p><textarea id="Message" cols="45" placeholder="Type any text like a short review"></textarea></p>
+    <label id="markerValue">Neutral</label>
+</div>
+
+<div>
     <form method="post">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
