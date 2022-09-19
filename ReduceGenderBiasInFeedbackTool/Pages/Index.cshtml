@@ -5,6 +5,29 @@
     ViewData["Title"] = "Index";
 }
 
+<h1>Keep doing...</h1>
+<p>Here's something I think you do really well and hope you keep doing:</p>
+<textarea placeholder="Enter your comments here"></textarea>
+
+<p>Here's a suggestion for how you can leverage this strength further:</p>
+<textarea placeholder="Enter your comments here"></textarea>
+
+<h1>Re-think...</h1>
+<p>Here's something you may want to re-think:</p>
+<textarea placeholder="Enter your comments here"></textarea>
+
+<p>Here's an example to consider for doing it another way:</p>
+<textarea placeholder="Enter your comments here"></textarea>
+
+<h1>Additional thoughts...</h1>
+<p>The thing I most value about working with you is:</p>
+<textarea placeholder="Enter your comments here"></textarea>
+
+<p>Here are some other thoughts I have that you want to consider:</p>
+<textarea placeholder="Enter your comments here"></textarea>
+
+@Html.TextAreaFor(m => m.Feedback[0].Body)  
+
 <h1>Index</h1>
 
 <p>
@@ -15,6 +38,7 @@
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Feedback[0].Body)
+                @*@Html.TextAreaFor(m => m.Feedback[0].Body)*@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Feedback[0].HasBeenChecked)
