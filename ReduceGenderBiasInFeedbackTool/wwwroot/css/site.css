@@ -1,6 +1,6 @@
 html {
   font-size: 14px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+  font-family: 'Segoe UI light', Tahoma, Geneva, Verdana, sans-serif
 }
 
 @media (min-width: 768px) {
@@ -16,4 +16,50 @@ html {
 
 body {
   margin-bottom: 60px;
+}
+
+h1 {
+    font-weight: 100;
+    color: #fff;
+    font-size: 24px;
+    background-color: #0072c6;
+    padding: 5px 20px;
+    margin-bottom: 0px;
+}
+
+p {
+  margin-top: 10px;
+  font-weight: 600;
+  font-family: 'Segoe UI';
+}
+
+input {
+    height: 76px;
+    background-color: #f2f2f2 !important;
+    font-size: 14px;
+    font-style: italic !important;
+}
+
+button {
+    color: #fff;
+    background: #0072c6 !important;
+    font-family: Segoe UI;
+    font-size: 14px;
+    line-height: 16px;
+    border-radius: 0 !important;
+}
+
+.main-input {
+    border-bottom-style: solid;
+    border-bottom-color: #6dc2e9;
+    border-bottom-width: 1px;
+    border-left-style: solid;
+    border-left-color: #6dc2e9;
+    border-left-width: 1px;
+    border-right-style: solid;
+    border-right-color: #6dc2e9;
+    border-right-width: 1px;
+    background-color: #fff;
+    padding: 10px 20px 15px;
+    margin-bottom: 20px;
 }
