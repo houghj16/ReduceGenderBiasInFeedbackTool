@@ -94,9 +94,15 @@ function updateAnalysis6() {
         });
 }
 
-$("#Message1").on('change input paste', updateAnalysis1)
-$("#Message2").on('change input paste', updateAnalysis2)
-$("#Message3").on('change input paste', updateAnalysis3)
-$("#Message4").on('change input paste', updateAnalysis4)
-$("#Message5").on('change input paste', updateAnalysis5)
-$("#Message6").on('change input paste', updateAnalysis6)
+$("#bias-check1").on('click', updateAnalysis1)
+$("#bias-check2").on('click', updateAnalysis1)
+$("#bias-check3").on('click', updateAnalysis1)
+$("#bias-check4").on('click', updateAnalysis1)
+$("#bias-check5").on('click', updateAnalysis1)
+$("#bias-check6").on('click', updateAnalysis1)
+//$("#Message1").on('change input paste', updateAnalysis1)
+//$("#Message2").on('change input paste', updateAnalysis2)
+//$("#Message3").on('change input paste', updateAnalysis3)
+//$("#Message4").on('change input paste', updateAnalysis4)
+//$("#Message5").on('change input paste', updateAnalysis5)
+//$("#Message6").on('change input paste', updateAnalysis6)
