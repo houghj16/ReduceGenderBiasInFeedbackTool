@@ -162,3 +162,8 @@ button {
     text-decoration: none;
     cursor: pointer;
 }
+
+#submit-btn-secondary {
+    width: fit-content;
+    padding-top: 20px;
+}

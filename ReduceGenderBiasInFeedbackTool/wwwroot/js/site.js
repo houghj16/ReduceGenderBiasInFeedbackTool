@@ -5,10 +5,7 @@
 var isBiased = false;
 
 function getAnalysis(userInput) {
-    return fetch(`Index?handler=AnalyzeFeedback&text=${userInput}`)
-        .then((response) => {
-            return response.text();
-        })
+    return compareWordsAndGetScore(userInput)
 }
 
 function highlight(text) {
@@ -98,50 +95,35 @@ function updateAnalysis2() {
 
     var userInput = $("#Message2").val();
 
-    getAnalysis(userInput)
-        .then((sentiment) => {
-            updateMarker2(sentiment);
-        });
+    updateMarker2(getAnalysis(userInput));
 }
 
 function updateAnalysis3() {
 
     var userInput = $("#Message3").val();
 
-    getAnalysis(userInput)
-        .then((sentiment) => {
-            updateMarker3(sentiment);
-        });
+    updateMarker3(getAnalysis(userInput));
 }
 
 function updateAnalysis4() {
 
     var userInput = $("#Message4").val();
 
-    getAnalysis(userInput)
-        .then((sentiment) => {
-            updateMarker4(sentiment);
-        });
+    updateMarker4(getAnalysis(userInput));
 }
 
 function updateAnalysis5() {
 
     var userInput = $("#Message5").val();
 
-    getAnalysis(userInput)
-        .then((sentiment) => {
-            updateMarker5(sentiment);
-        });
+    updateMarker5(getAnalysis(userInput));
 }
 
 function updateAnalysis6() {
 
     var userInput = $("#Message6").val();
 
-    getAnalysis(userInput)
-        .then((sentiment) => {
-            updateMarker6(sentiment);
-        });
+    updateMarker6(getAnalysis(userInput));
 }
 
 function showModal() {
@@ -192,3 +174,160 @@ window.onclick = function (event) {
 //$("#Message4").on('change input paste', updateAnalysis4)
 //$("#Message5").on('change input paste', updateAnalysis5)
 //$("#Message6").on('change input paste', updateAnalysis6)
+
+function compareWordsAndGetScore(text) {
+    feminineScore = 0;
+    masculineScore = 0;
+    // parsedRawText = text.toLowerCase().split(' ', ',', '.', '!', '?', '/', '-');
+    parsedRawText = text.toLowerCase().split(/[-_,.!?@#$%^&*()\s~`]+/);
+    feminineWordsInText = new Set();
+    masculineWordsInText = new Set();
+
+    // Iterate through feminine/masculine-coded word set
+    feminine_coded_words.forEach(codedWord => {
+        {
+            parsedRawText.forEach(word => {
+                if (word.includes(codedWord)) {
+                    feminineScore++;
+                    feminineWordsInText.add(word);
+                }
+            }
+            );
+        }
+    }
+    );
+
+    masculine_coded_words.forEach(codedWord => {
+        {
+            for (word of parsedRawText.values()) {
+                if (word.includes(codedWord)) {
+                    masculineScore++;
+                    masculineWordsInText.add(word);
+                }
+            }
+        }
+    }
+    );
+
+    // return [feminineWordsInText.size, masculineWordsInText.size, feminineWordsInText, masculineWordsInText];
+    if (masculineScore == 0 && feminineScore == 0) {
+        return "We detected no biased words in your feedback! Great Job!";
+    }
+    
+    ret = "We have detected potentially biased text in your feedback. Please take a second look.\n";
+    if (masculineScore > 0) {
+        ret += `${masculineWordsInText.size} masculine coded ${(masculineWordsInText.size > 1 ? "words" : "word")} detected: ${Array.from(masculineWordsInText).join(", ")}. `;
+    }
+    if (feminineScore > 0) {
+        ret += `${feminineWordsInText.size} feminine coded ${(feminineWordsInText.size > 1 ? "words" : "word")} detected: ${Array.from(feminineWordsInText).join(", ")}. `;
+    }
+    return ret;
+}
+
+feminine_coded_words = [
+    "agree",
+    "affectionate",
+    "child",
+    "cheer",
+    "collab",
+    "commit",
+    "communal",
+    "compassion",
+    "connect",
+    "considerate",
+    "cooperat",
+    "co-operat",
+    "depend",
+    "emotiona",
+    "empath",
+    "feel",
+    "flatterable",
+    "gentle",
+    "honest",
+    "interpersonal",
+    "interdependen",
+    "interpersona",
+    "inter-personal",
+    "inter-dependen",
+    "inter-persona",
+    "kind",
+    "kinship",
+    "loyal",
+    "modesty",
+    "nag",
+    "nurtur",
+    "pleasant",
+    "polite",
+    "quiet",
+    "respon",
+    "sensitiv",
+    "submissive",
+    "support",
+    "sympath",
+    "tender",
+    "together",
+    "trust",
+    "understand",
+    "warm",
+    "whin",
+    "enthusias",
+    "inclusive",
+    "yield",
+    "share",
+    "sharin"
+]
+
+masculine_coded_words =[
+    "active",
+    "adventurous",
+    "aggress",
+    "ambitio",
+    "analy",
+    "assert",
+    "athlet",
+    "autonom",
+    "battle",
+    "boast",
+    "challeng",
+    "champion",
+    "compet",
+    "confident",
+    "courag",
+    "decid",
+    "decision",
+    "decisive",
+    "defend",
+    "determin",
+    "domina",
+    "dominant",
+    "driven",
+    "fearless",
+    "fight",
+    "force",
+    "greedy",
+    "head-strong",
+    "headstrong",
+    "hierarch",
+    "hostil",
+    "impulsive",
+    "independen",
+    "individual",
+    "intellect",
+    "lead",
+    "logic",
+    "objective",
+    "opinion",
+    "outspoken",
+    "persist",
+    "principle",
+    "reckless",
+    "self-confiden",
+    "self-relian",
+    "self-sufficien",
+    "selfconfiden",
+    "selfrelian",
+    "selfsufficien",
+    "stubborn",
+    "superior",
+    "unreasonab"
+]
