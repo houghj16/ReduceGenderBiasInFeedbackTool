@@ -3,11 +3,24 @@
 
 // Write your JavaScript code.
 var isBiased = false;
+
 function getAnalysis(userInput) {
     return fetch(`Index?handler=AnalyzeFeedback&text=${userInput}`)
         .then((response) => {
             return response.text();
         })
+}
+
+function highlight(text) {
+    var inputText = document.getElementById("Message1");
+
+    var output = document.getElementById("Message1Display");
+    var innerHTML = inputText.value;
+    var index = innerHTML.indexOf(text);
+    if (index >= 0) {
+        innerHTML = innerHTML.substring(0, index) + "<span class='highlight'>" + innerHTML.substring(index, index + text.length) + "</span > " + innerHTML.substring(index + text.length);
+        output.innerHTML = innerHTML;
+    }
 }
 
 function updateMarker1(sentiment) {
@@ -77,7 +90,7 @@ function updateAnalysis1() {
     getAnalysis(userInput)
         .then((sentiment) => {
             updateMarker1(sentiment);
-        });
+        }).then(highlight("aggressive"));
 }
 
 

@@ -15,6 +15,12 @@ body {
   margin-bottom: 60px;
 }
 
+.highlight {
+    background-color: yellow !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
 h1 {
     font-weight: 100;
     color: #fff;
@@ -37,7 +43,6 @@ p {
 span {
     padding-left: 20px;
     padding-right: 20px;
-    padding-bottom: 20px;
 }
 
 label {
