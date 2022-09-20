@@ -33,8 +33,8 @@ namespace ReduceGenderBiasInFeedbackTool.Pages
         {
             if (String.IsNullOrEmpty(text)) return Content("We detected no biased words in your feedback! Great Job!");
             // call function on it
-            var score = EvaluateEntry.CompareWordsAndGetScore(text).ToString();
-            return Content(score);
+            // var score = EvaluateEntry.CompareWordsAndGetScore(text).ToString();
+            return Content("0");
         }
     }
 }
