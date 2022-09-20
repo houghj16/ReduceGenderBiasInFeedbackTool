@@ -4,20 +4,39 @@
 // Write your JavaScript code.
 var isBiased = false;
 
-function getAnalysis(userInput) {
-    return compareWordsAndGetScore(userInput)
+function getAnalysis(userInput, message) {
+    console.log(userInput);
+    return compareWordsAndGetScore(userInput, message);
 }
 
-function highlight(text) {
-    var inputText = document.getElementById("Message1");
-
-    var output = document.getElementById("Message1Display");
+function highlight(message, femWords, mascWords) {
+    var inputText = document.getElementById(message);
+    var output = document.getElementById(message+"Display");
     var innerHTML = inputText.value;
-    var index = innerHTML.indexOf(text);
-    if (index >= 0) {
-        innerHTML = innerHTML.substring(0, index) + "<span class='highlight'>" + innerHTML.substring(index, index + text.length) + "</span > " + innerHTML.substring(index + text.length);
-        output.innerHTML = innerHTML;
+
+    femWords.forEach(w => {
+        {
+            var index = innerHTML.indexOf(w);
+            if (index >= 0) {
+                innerHTML = innerHTML.substring(0, index) + "<span class='highlight'>" + innerHTML.substring(index, index + w.length) + "</span > " + innerHTML.substring(index + w.length);
+
+            }
+        }
     }
+    );
+
+    mascWords.forEach(w => {
+        {
+            var index = innerHTML.indexOf(w);
+            if (index >= 0) {
+                innerHTML = innerHTML.substring(0, index) + "<span class='highlight'>" + innerHTML.substring(index, index + w.length) + "</span > " + innerHTML.substring(index + w.length);
+
+            }
+        }
+    }
+    );
+
+    output.innerHTML = innerHTML;
 }
 
 function updateMarker1(sentiment) {
@@ -84,10 +103,7 @@ function updateAnalysis1() {
 
     var userInput = $("#Message1").val();
 
-    getAnalysis(userInput)
-        .then((sentiment) => {
-            updateMarker1(sentiment);
-        }).then(highlight("aggressive"));
+    updateMarker1(getAnalysis(userInput, "Message1"));
 }
 
 
@@ -95,35 +111,35 @@ function updateAnalysis2() {
 
     var userInput = $("#Message2").val();
 
-    updateMarker2(getAnalysis(userInput));
+    updateMarker2(getAnalysis(userInput, "Message2"));
 }
 
 function updateAnalysis3() {
 
     var userInput = $("#Message3").val();
 
-    updateMarker3(getAnalysis(userInput));
+    updateMarker3(getAnalysis(userInput, "Message3"));
 }
 
 function updateAnalysis4() {
 
     var userInput = $("#Message4").val();
 
-    updateMarker4(getAnalysis(userInput));
+    updateMarker4(getAnalysis(userInput, "Message4"));
 }
 
 function updateAnalysis5() {
 
     var userInput = $("#Message5").val();
 
-    updateMarker5(getAnalysis(userInput));
+    updateMarker5(getAnalysis(userInput, "Message5"));
 }
 
 function updateAnalysis6() {
 
     var userInput = $("#Message6").val();
 
-    updateMarker6(getAnalysis(userInput));
+    updateMarker6(getAnalysis(userInput, "Message6"));
 }
 
 function showModal() {
@@ -175,7 +191,7 @@ window.onclick = function (event) {
 //$("#Message5").on('change input paste', updateAnalysis5)
 //$("#Message6").on('change input paste', updateAnalysis6)
 
-function compareWordsAndGetScore(text) {
+function compareWordsAndGetScore(text, message) {
     feminineScore = 0;
     masculineScore = 0;
     // parsedRawText = text.toLowerCase().split(' ', ',', '.', '!', '?', '/', '-');
@@ -208,6 +224,8 @@ function compareWordsAndGetScore(text) {
         }
     }
     );
+
+    highlight(message, feminineWordsInText, masculineWordsInText);
 
     // return [feminineWordsInText.size, masculineWordsInText.size, feminineWordsInText, masculineWordsInText];
     if (masculineScore == 0 && feminineScore == 0) {

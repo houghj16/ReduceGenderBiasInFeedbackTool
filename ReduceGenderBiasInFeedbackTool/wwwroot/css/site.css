@@ -90,6 +90,10 @@ button {
     padding-top: 0px !important;
 }
 
+#Message1Display, #Message2Display, #Message3Display, #Message4Display, #Message5Display, #Message6Display {
+    /*background-color: pink;*/
+}
+
 #personal-note {
     background-color: #505050 !important;
     padding: 5px 20px !important;
