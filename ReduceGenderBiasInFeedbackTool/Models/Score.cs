@@ -26,11 +26,11 @@ namespace ReduceGenderBiasInFeedbackTool.Models
             string ret = "We have detected potentially biased text in your feedback. Please take a second look.\n";
             if (masculineScore > 0)
             {
-                ret += $"{masculineWords.Count} masculine coded word(s) detected: {string.Join(", ", masculineWords)}\n";
+                ret += $"{masculineWords.Count} masculine coded {(masculineWords.Count > 1 ? "words" : "word")} detected: {string.Join(", ", masculineWords)}. ";
             }
             if (feminineScore > 0)
             {
-                ret += $"{feminineWords.Count} feminine coded word(s) detected: {string.Join(", ", feminineWords)}\n";
+                ret += $"{feminineWords.Count} feminine coded {(feminineWords.Count > 1 ? "words" : "word")} detected: {string.Join(", ", feminineWords)}. ";
             }
             return ret;
 
