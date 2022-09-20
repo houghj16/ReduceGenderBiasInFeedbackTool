@@ -4,7 +4,9 @@
 // Write your JavaScript code.
 var isBiased = false;
 function getAnalysis(userInput) {
-    return compareWordsAndGetScore(userInput)
+    // return fetch('Index?handler=AnalyzeFeedback&text=${userInput}').then(
+       //  compareWordsAndGetScore(userInput));
+    return compareWordsAndGetScore(userInput);
 }
 
 function updateMarker1(sentiment) {

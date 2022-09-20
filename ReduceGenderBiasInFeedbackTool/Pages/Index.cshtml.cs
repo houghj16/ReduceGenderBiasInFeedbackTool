@@ -31,9 +31,10 @@ namespace ReduceGenderBiasInFeedbackTool.Pages
 
         public IActionResult OnGetAnalyzeFeedback(string text)
         {
-            if (String.IsNullOrEmpty(text)) return Content("We detected no biased words in your feedback! Great Job!");
+            // if (String.IsNullOrEmpty(text)) return Content("We detected no biased words in your feedback! Great Job!");
             // call function on it
             // var score = EvaluateEntry.CompareWordsAndGetScore(text).ToString();
+            WebScraping.WebScrape();
             return Content("0");
         }
     }
