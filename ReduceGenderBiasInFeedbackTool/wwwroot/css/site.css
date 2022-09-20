@@ -114,3 +114,18 @@ button {
 .submit-button {
     border: none;
 }
+
+mark {
+    color: transparent;
+    background-color: #d4e9ab; /* or whatever */
+}
+
+.highlights {
+    color: transparent;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.backdrop {
+    overflow: auto;
+}
