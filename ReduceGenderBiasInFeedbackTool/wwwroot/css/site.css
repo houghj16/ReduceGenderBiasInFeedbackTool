@@ -15,7 +15,7 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+  /*margin-bottom: 60px;*/
 }
 
 h1 {
@@ -28,17 +28,25 @@ h1 {
 }
 
 p {
-  margin-top: 10px;
-  font-weight: 600;
-  font-family: 'Segoe UI';
-  padding-left: 20px;
-  padding-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    font-weight: 600;
+    font-family: 'Segoe UI';
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 0px !important;
 }
 
 span {
     padding-left: 20px;
     padding-right: 20px;
-    margin: 0px !important;
+    padding-bottom: 20px;
+}
+
+label {
+    padding-left: 20px;
+    padding-right: 20px;
+    color: darkorchid;
 }
 
 .input {
@@ -49,7 +57,7 @@ span {
     font-style: italic !important;
     padding-left: 20px !important;
     margin-right: 20px !important;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
 }
 
 button {
@@ -59,7 +67,6 @@ button {
     font-size: 14px;
     line-height: 16px;
     border-radius: 0 !important;
-    margin-top: 20px;
     border: none !important;
 }
 
@@ -91,7 +98,7 @@ button {
 
 #personal-message-p {
     border: 1px solid #d2d2d2;
-    padding: 15px 20px 25px;
+    padding: 15px 20px 20px 25px !important;
     font-family: 'Segoe UI';
     font-style: italic;
     font-size: 18px;

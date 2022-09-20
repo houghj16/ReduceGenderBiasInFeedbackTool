@@ -19,9 +19,19 @@ namespace ReduceGenderBiasInFeedbackTool.Models
         }
         public override string ToString()
         {
+            if (masculineScore == 0 && feminineScore == 0)
+            {
+                return "We detected no biased words in your feedback! Great Job!";
+            }
             string ret = "We have detected potentially biased text in your feedback. Please take a second look.\n";
-            ret += $"{masculineScore} masculine coded words detected: {string.Join(", ", masculineWords)}\n";
-            ret += $"{feminineScore} feminine coded words detected: {string.Join(", ", feminineWords)}\n";
+            if (masculineScore > 0)
+            {
+                ret += $"{masculineScore} masculine coded word(s) detected: {string.Join(", ", masculineWords)}\n";
+            }
+            if (feminineScore > 0)
+            {
+                ret += $"{feminineScore} feminine coded word(s) detected: {string.Join(", ", feminineWords)}\n";
+            }
             return ret;
 
         }
