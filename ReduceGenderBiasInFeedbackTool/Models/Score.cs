@@ -10,6 +10,14 @@ namespace ReduceGenderBiasInFeedbackTool.Models
         public HashSet<string> feminineWords;
         public HashSet<string> masculineWords;
 
+        public Score()
+        {
+            feminineScore = 0;
+            masculineScore = 0;
+            feminineWords = new HashSet<string>();
+            masculineWords = new HashSet<string>();
+        }
+
         public Score(int feminineScore, int masculineScore, HashSet<string> feminineWords, HashSet<string> masculineWords)
         {
             this.feminineScore = feminineScore;
