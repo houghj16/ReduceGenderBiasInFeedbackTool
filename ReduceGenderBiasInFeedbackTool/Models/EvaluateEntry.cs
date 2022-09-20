@@ -9,7 +9,7 @@ namespace ReduceGenderBiasInFeedbackTool.Models
         {
             int feminineScore = 0;
             int masculineScore = 0;
-            string[] parsedRawText = text.ToLower().Split(' ');
+            string[] parsedRawText = text.ToLower().Split(' ', ',', '.', '!', '?', '/', '-');
             HashSet<string> feminineWordsInText = new HashSet<string>();
             HashSet<string> masculineWordsInText = new HashSet<string>();
 
