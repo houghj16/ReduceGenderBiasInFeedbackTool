@@ -1,17 +1,14 @@
 html {
-  font-size: 14px;
-  font-family: 'Segoe UI Light', Tahoma, Geneva, Verdana, sans-serif
+    font-size: 14px;
+    font-family: 'Segoe UI Light', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+    min-height: 100%;
 }
 
 @media (min-width: 768px) {
   html {
     font-size: 16px;
   }
-}
-
-html {
-  position: relative;
-  min-height: 100%;
 }
 
 body {
@@ -68,7 +65,6 @@ button {
     line-height: 16px;
     border-radius: 0 !important;
     border: none !important;
-    margin-bottom: 50px;
 }
 
 .form-group {
@@ -121,6 +117,7 @@ button {
 
 .submit-button {
     border: none;
+    margin-bottom: 50px;
 }
 
 /* The Modal (background) */
