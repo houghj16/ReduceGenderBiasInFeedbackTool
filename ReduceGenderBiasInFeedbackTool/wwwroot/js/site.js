@@ -4,6 +4,13 @@
 // Write your JavaScript code.
 var isBiased = false;
 
+$("#Sug1Box").hide();
+$("#Sug2Box").hide();
+$("#Sug3Box").hide();
+$("#Sug4Box").hide();
+$("#Sug5Box").hide();
+$("#Sug6Box").hide();
+
 function getAnalysis(userInput, message) {
     console.log(userInput);
     return compareWordsAndGetScore(userInput, message);
@@ -40,105 +47,105 @@ function highlight(message, femWords, mascWords) {
 }
 
 function updateMarker1(sentiment) {
-    if (sentiment == "We detected no biased words in your feedback! Great Job!") {
+    if (sentiment == "Great work with your feedback! We have no suggestions!") {
         isBiased = false;
     }
     else {
         isBiased = true;
     }
-    $("#markerValue1").text(sentiment);
+    var updatedMarker = document.getElementById("markerValue1");
+    updatedMarker.innerHTML = sentiment;
 }
 
 function updateMarker2(sentiment) {
-    if (sentiment == "We detected no biased words in your feedback! Great Job!") {
+    if (sentiment == "Great work with your feedback! We have no suggestions!") {
         isBiased = false;
     }
     else {
         isBiased = true;
     }
-    $("#markerValue2").text(sentiment);
+    var updatedMarker = document.getElementById("markerValue2");
+    updatedMarker.innerHTML = sentiment;
 }
 
 function updateMarker3(sentiment) {
-    if (sentiment == "We detected no biased words in your feedback! Great Job!") {
+    if (sentiment == "Great work with your feedback! We have no suggestions!") {
         isBiased = false;
     }
     else {
         isBiased = true;
     }
-    $("#markerValue3").text(sentiment);
+    var updatedMarker = document.getElementById("markerValue3");
+    updatedMarker.innerHTML = sentiment;
 }
 
 function updateMarker4(sentiment) {
-    if (sentiment == "We detected no biased words in your feedback! Great Job!") {
+    if (sentiment == "Great work with your feedback! We have no suggestions!") {
         isBiased = false;
     }
     else {
         isBiased = true;
     }
-    $("#markerValue4").text(sentiment);
+    var updatedMarker = document.getElementById("markerValue4");
+    updatedMarker.innerHTML = sentiment;
 }
 
 function updateMarker5(sentiment) {
-    if (sentiment == "We detected no biased words in your feedback! Great Job!") {
+    if (sentiment == "Great work with your feedback! We have no suggestions!") {
         isBiased = false;
     }
     else {
         isBiased = true;
     }
-    $("#markerValue5").text(sentiment);
+    var updatedMarker = document.getElementById("markerValue5");
+    updatedMarker.innerHTML = sentiment;
 }
 
 function updateMarker6(sentiment) {
-    if (sentiment == "We detected no biased words in your feedback! Great Job!") {
+    if (sentiment == "Great work with your feedback! We have no suggestions!") {
         isBiased = false;
     }
     else {
         isBiased = true;
     }
-    $("#markerValue6").text(sentiment);
+    var updatedMarker = document.getElementById("markerValue6");
+    updatedMarker.innerHTML = sentiment;
 }
 
 function updateAnalysis1() {
-
     var userInput = $("#Message1").val();
-
+    $("#Sug1Box").show();
     updateMarker1(getAnalysis(userInput, "Message1"));
 }
 
 
 function updateAnalysis2() {
-
     var userInput = $("#Message2").val();
-
+    $("#Sug2Box").show();
     updateMarker2(getAnalysis(userInput, "Message2"));
 }
 
 function updateAnalysis3() {
-
     var userInput = $("#Message3").val();
-
+    $("#Sug3Box").show();
     updateMarker3(getAnalysis(userInput, "Message3"));
 }
 
 function updateAnalysis4() {
-
     var userInput = $("#Message4").val();
-
+    $("#Sug4Box").show();
     updateMarker4(getAnalysis(userInput, "Message4"));
 }
 
 function updateAnalysis5() {
-
     var userInput = $("#Message5").val();
-
+    $("#Sug5Box").show();
     updateMarker5(getAnalysis(userInput, "Message5"));
 }
 
 function updateAnalysis6() {
-
     var userInput = $("#Message6").val();
-
+    $("#Sug6Box").show();
     updateMarker6(getAnalysis(userInput, "Message6"));
 }
 
@@ -152,20 +159,80 @@ function closeModal() {
     $(".modal").css("display", "none");
 }
 
-$("#bias-check1").on('click', updateAnalysis1)
-$("#bias-check2").on('click', updateAnalysis2)
-$("#bias-check3").on('click', updateAnalysis3)
-$("#bias-check4").on('click', updateAnalysis4)
-$("#bias-check5").on('click', updateAnalysis5)
-$("#bias-check6").on('click', updateAnalysis6)
+$("#Sug1BoxClose").on('click', () => {
+    $("#Sug1Box").hide();
+})
+
+$("#Sug2BoxClose").on('click', () => {
+    $("#Sug2Box").hide();
+})
+
+$("#Sug3BoxClose").on('click', () => {
+    $("#Sug3Box").hide();
+})
+
+$("#Sug4BoxClose").on('click', () => {
+    $("#Sug4Box").hide();
+})
+
+$("#Sug5BoxClose").on('click', () => {
+    $("#Sug5Box").hide();
+})
+
+$("#Sug6BoxClose").on('click', () => {
+    $("#Sug6Box").hide();
+})
+
+var input1 = document.getElementById("Message1");
+input1.addEventListener("keypress", function (event) {
+    if (event.keyCode == 13) {
+        updateAnalysis1();
+    }
+});
+
+var input2 = document.getElementById("Message2");
+input2.addEventListener("keypress", function (event) {
+    if (event.keyCode == 13) {
+        updateAnalysis2();
+    }
+});
+
+var input3 = document.getElementById("Message3");
+input3.addEventListener("keypress", function (event) {
+    if (event.keyCode == 13) {
+        updateAnalysis3();
+    }
+});
+
+var input4 = document.getElementById("Message4");
+input4.addEventListener("keypress", function (event) {
+    if (event.keyCode == 13) {
+        updateAnalysis4();
+    }
+});
+
+var input5 = document.getElementById("Message5");
+input5.addEventListener("keypress", function (event) {
+    if (event.keyCode == 13) {
+        updateAnalysis5();
+    }
+});
+
+var input6 = document.getElementById("Message6");
+input6.addEventListener("keypress", function (event) {
+    if (event.keyCode == 13) {
+        updateAnalysis6();
+    }
+});
 
 var modal = document.getElementById("dialog");
 
 // Get the button that opens the modal
 var btn = document.getElementById("submit-btn");
 
-// Get the <span> element that closes the modal
+// Get the <span> element that closes the modal and the review button
 var span = document.getElementsByClassName("close")[0];
+var rev = document.getElementById("review-btn");
 
 btn.onclick = function () {
     if (isBiased) {
@@ -175,6 +242,10 @@ btn.onclick = function () {
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function () {
+    modal.style.display = "none";
+}
+
+rev.onclick = function () {
     modal.style.display = "none";
 }
 
@@ -229,16 +300,17 @@ function compareWordsAndGetScore(text, message) {
 
     // return [feminineWordsInText.size, masculineWordsInText.size, feminineWordsInText, masculineWordsInText];
     if (masculineScore == 0 && feminineScore == 0) {
-        return "We detected no biased words in your feedback! Great Job!";
+        return "Great work with your feedback! We have no suggestions!";
     }
     
-    ret = "We have detected potentially biased text in your feedback. Please take a second look.\n";
+    ret = "This feedback appears to be about the individual's personality. Consider providing concrete actions the employee could take to do better. <br> <b>Consider reviewing:</b> <br>";
     if (masculineScore > 0) {
-        ret += `${masculineWordsInText.size} masculine coded ${(masculineWordsInText.size > 1 ? "words" : "word")} detected: ${Array.from(masculineWordsInText).join(", ")}. `;
+        ret += `${masculineWordsInText.size} masculine coded ${(masculineWordsInText.size > 1 ? "words" : "word")} detected: ${Array.from(masculineWordsInText).join(", ")}. <br>`;
     }
     if (feminineScore > 0) {
-        ret += `${feminineWordsInText.size} feminine coded ${(feminineWordsInText.size > 1 ? "words" : "word")} detected: ${Array.from(feminineWordsInText).join(", ")}. `;
+        ret += `${feminineWordsInText.size} feminine coded ${(feminineWordsInText.size > 1 ? "words" : "word")} detected: ${Array.from(feminineWordsInText).join(", ")}. <br>`;
     }
+    /*ret += "Go <a href='https://microsoft.myhbp.org/leadingedge/asset/view/H04BT5-PDF-ENG' target='_blank'>here</a> to explore substitutes / refinements.";*/
     return ret;
 }
 

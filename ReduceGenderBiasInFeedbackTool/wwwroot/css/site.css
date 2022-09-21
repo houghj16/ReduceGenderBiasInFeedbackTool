@@ -16,7 +16,7 @@ body {
 }
 
 .highlight {
-    background-color: yellow !important;
+    background-color: #d1abe6 !important;
     padding-left: 0px !important;
     padding-right: 0px !important;
 }
@@ -30,19 +30,25 @@ h1 {
     margin-bottom: 0px;
 }
 
-p {
+.prompt {
     margin-top: 10px;
     margin-bottom: 0px;
     font-weight: 600;
     font-family: 'Segoe UI';
     padding-left: 20px;
     padding-right: 20px;
-    padding-bottom: 0px !important;
+    padding-bottom: 10px !important;
 }
 
-span {
-    padding-left: 20px;
-    padding-right: 20px;
+.tabbed {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.suggestion-box {
+    background-color: #F5F2EC;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 label {
@@ -57,9 +63,8 @@ label {
     background-color: #f2f2f2 !important;
     font-size: 14px;
     font-style: italic !important;
-    padding-left: 20px !important;
-    margin-right: 20px !important;
-    margin-bottom: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 button {
@@ -158,6 +163,7 @@ button {
     float: right;
     font-size: 28px;
     font-weight: bold;
+    margin-top: -15px;
 }
 
 .close:hover,
@@ -167,7 +173,19 @@ button {
     cursor: pointer;
 }
 
+/* The Suggestion Close Buttons */
+#Sug1BoxClose, #Sug2BoxClose, #Sug3BoxClose, #Sug4BoxClose, #Sug5BoxClose, #Sug6BoxClose {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: -15px;
+}
+
 #submit-btn-secondary {
     width: fit-content;
-    padding-top: 20px;
+}
+
+#review-btn {
+    width: fit-content;
 }

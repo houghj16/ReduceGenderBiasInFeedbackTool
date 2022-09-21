@@ -15,59 +15,59 @@
 <div>
     <div class="form-group">
         <h1>Keep doing...</h1>
-        <p>Here's something I think you do really well and hope you keep doing:</p>
-        <p><textarea class="input" id="Message1" cols="45" placeholder="Enter your comments here"></textarea></p>
-        <p id="Message1Display"></p>
-        <span>
-            <button id="bias-check1">Bias Check</button>
-            Feedback: <label id="markerValue1"></label>
-        </span>
+        <p class="prompt">Here's something I think you do really well and hope you keep doing:</p>
+        <div class="tabbed"><textarea class="input" id="Message1" cols="45" placeholder="Enter your comments here"></textarea></div>
+        <div class="suggestion-box" id="Sug1Box">
+            <span id="Sug1BoxClose">&times;</span>
+            <b>You typed:</b> <p class="tabbed" id="Message1Display"></p>
+            <b>Suggestion:</b> <div class="tabbed" id="markerValue1"></div>
+        </div>
 
-        <p>Here's a suggestion for how you can leverage this strength further:</p>
-        <p><textarea class="input" id="Message2" cols="45" placeholder="Enter your comments here"></textarea></p>
-        <p id="Message2Display"></p>
-        <span>
-            <button id="bias-check2">Bias Check</button>
-            Feedback: <label id="markerValue2"></label>
-        </span>
+        <p class="prompt">Here's a suggestion for how you can leverage this strength further:</p>
+        <div class="tabbed"><textarea class="input" id="Message2" cols="45" placeholder="Enter your comments here"></textarea></div>
+        <div class="suggestion-box" id="Sug2Box">
+            <span id="Sug2BoxClose">&times;</span>
+            <b>You typed:</b> <p class="tabbed" id="Message2Display"></p>
+            <b>Suggestion:</b> <div class="tabbed" id="markerValue2"></div>
+        </div>
     </div>
 
     <div class="form-group">
         <h1>Re-think...</h1>
-        <p>Here's something I think you do really well and hope you keep doing:</p>
-        <p><textarea class="input" id="Message3" cols="45" placeholder="Enter your comments here"></textarea></p>
-        <p id="Message3Display"></p>
-        <span>
-            <button id="bias-check3">Bias Check</button>
-            Feedback: <label id="markerValue3"></label>
-        </span>
+        <p class="prompt">Here's something I think you do really well and hope you keep doing:</p>
+        <div class="tabbed"><textarea class="input" id="Message3" cols="45" placeholder="Enter your comments here"></textarea></div>
+        <div class="suggestion-box" id="Sug3Box">
+            <span id="Sug3BoxClose">&times;</span>
+            <b>You typed:</b> <p class="tabbed" id="Message3Display"></p>
+            <b>Suggestion:</b> <div class="tabbed" id="markerValue3"></div>
+        </div>
 
-        <p>Here's a suggestion for how you can leverage this strength further:</p>
-        <p><textarea class="input" id="Message4" cols="45" placeholder="Enter your comments here"></textarea></p>
-        <p id="Message4Display"></p>
-        <span>
-            <button id="bias-check4">Bias Check</button>
-            Feedback: <label id="markerValue4"></label>
-        </span>
+        <p class="prompt">Here's a suggestion for how you can leverage this strength further:</p>
+        <div class="tabbed"><textarea class="input" id="Message4" cols="45" placeholder="Enter your comments here"></textarea></div>
+        <div class="suggestion-box" id="Sug4Box">
+            <span id="Sug4BoxClose">&times;</span>
+            <b>You typed:</b> <p class="tabbed" id="Message4Display"></p>
+            <b>Suggestion:</b> <div class="tabbed" id="markerValue4"></div>
+        </div>
     </div>
 
     <div class="form-group">
         <h1>Additional thoughts...</h1>
-        <p>The thing I most value about working with you is:</p>
-        <p><textarea class="input" id="Message5" cols="45" placeholder="Enter your comments here"></textarea></p>
-        <p id="Message5Display"></p>
-        <span>
-            <button id="bias-check5">Bias Check</button>
-            Feedback: <label id="markerValue5"></label>
-        </span>
+        <p class="prompt">The thing I most value about working with you is:</p>
+        <div class="tabbed"><textarea class="input" id="Message5" cols="45" placeholder="Enter your comments here"></textarea></div>
+        <div class="suggestion-box" id="Sug5Box">
+            <span id="Sug5BoxClose">&times;</span>
+            <b>You typed:</b> <p class="tabbed" id="Message5Display"></p>
+            <b>Suggestion:</b> <div class="tabbed" id="markerValue5"></div>
+        </div>
 
-        <p>Here are some other thoughts I have that you want to consider:</p>
-        <p><textarea class="input" id="Message6" cols="45" placeholder="Enter your comments here"></textarea></p>
-        <p id="Message6Display"></p>
-        <span>
-            <button id="bias-check6">Bias Check</button>
-            Feedback: <label id="markerValue6"></label>
-        </span>
+        <p class="prompt">Here are some other thoughts I have that you want to consider:</p>
+        <div class="tabbed"><textarea class="input" id="Message6" cols="45" placeholder="Enter your comments here"></textarea></div>
+        <div class="suggestion-box" id="Sug6Box">
+            <span id="Sug6BoxClose">&times;</span>
+            <b>You typed:</b> <p class="tabbed" id="Message6Display"></p>
+            <b>Suggestion:</b> <div class="tabbed" id="markerValue6"></div>
+        </div>
     </div>
 
     <button type="submit" value="Submit" class="btn btn-primary" id="submit-btn">Send</button>
@@ -79,13 +79,15 @@
         <div class="modal-content">
             <div>
                 <span class="close">&times;</span>
-                <h1>Are you sure you want to submit?</h1>
+                <p class="prompt">Would you like to review feedback suggestions before submitting?</p>
             </div>
         
-            <p>We have detected some biased language in your feedback. Please make sure to double check.</p>
-            <p>Did you know that women are impacted by bias in feedback? Learn more <a href="https://hackbox.microsoft.com/project/976" target="_blank">here</a></p>
+            <p class="tabbed">It appears that you haven't addressed all suggestions to make your feedback more focused, actionable and inclusive. Check out <a href="aka.ms/inclusivefeedback" target="_blank">aka.ms/inclusivefeedback</a> to learn more about bias can impact feedback!</p>
             
-            <button type="submit" value="Submit" class="btn btn-primary" id="submit-btn-secondary">Submit Anyways</button>
+            <span>
+                <button class="btn btn-primary" id="review-btn">Yes, review my responses</button>
+                <button type="submit" value="Submit" class="btn btn-primary" id="submit-btn-secondary">No, submit connect</button>
+            </span>
         </div>
 
     </div>
