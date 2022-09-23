@@ -302,7 +302,7 @@ function compareWordsAndGetScore(text, message) {
     if (masculineScore == 0 && feminineScore == 0) {
         return "Great work with your feedback! We have no suggestions!";
     }
-    
+        
     ret = "This feedback appears to be about the individual's personality. Consider providing concrete actions the employee could take to do better. <br> <b>Consider reviewing:</b> <br>";
     if (masculineScore > 0) {
         ret += `${masculineWordsInText.size} masculine coded ${(masculineWordsInText.size > 1 ? "words" : "word")} detected: ${Array.from(masculineWordsInText).join(", ")}. <br>`;
